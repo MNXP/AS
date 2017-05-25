@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="background_color">#f0f0f0</color>
+    <color name="font_default_color">#333333</color>
+    <color name="font_secondary_color">#666666</color>
+    <color name="font_minor_color">#999999</color>
+
+    <color name="line_default_color">#e5e5e5</color>
+    <color name="orange_color">#ff7422</color>
+    <color name="blue_color">#538eeb</color>
+
+    <color name="orange_color_enable">#fdd679</color>
+    <color name="white">#ffffff</color>
+    <color name="trans">#00000000</color>
+    <color name="black">#000000</color>
+
+</resources>
