@@ -34,9 +34,9 @@ public final class DecodeConverterFactory extends Converter.Factory {
         return new DecodeResponseBodyConverter<>(gson,adapter);
     }
 
-//    @Override
-//    public Converter<?, RequestBody> requestBodyConverter(Type type, Annotation[] parameterAnnotations, Annotation[] methodAnnotations, Retrofit retrofit) {
-//        TypeAdapter<?> adapter = gson.getAdapter(TypeToken.get(type));
-//        return new DecodeRequestBodyConverter<>(gson, adapter);
-//    }
+    @Override
+    public Converter<?, RequestBody> requestBodyConverter(Type type, Annotation[] parameterAnnotations, Annotation[] methodAnnotations, Retrofit retrofit) {
+        TypeAdapter<?> adapter = gson.getAdapter(TypeToken.get(type));
+        return new DecodeRequestBodyConverter<>(gson, adapter);
+    }
 }

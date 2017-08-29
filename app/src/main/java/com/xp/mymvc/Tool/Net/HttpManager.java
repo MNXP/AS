@@ -16,9 +16,9 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
+import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
-import retrofit2.converter.gson.GsonConverterFactory;
 import rx.Observable;
 import rx.Subscriber;
 import rx.android.schedulers.AndroidSchedulers;
@@ -53,8 +53,7 @@ public class HttpManager {
         builder.writeTimeout(TIMEOUT, TimeUnit.SECONDS);
         //设置缓存文件
         builder.cache(new Cache(cacheDirectory, 10 * 1024 * 1024));
-        //设置okhttp拦截器，这样做的好处是可以为你的每一个
-        //retrofit2的网络请求都增加相同的head头信息，而不用每一个请求都写头信息
+        builder.addNetworkInterceptor(new HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY));
         builder.addInterceptor(new Interceptor() {
             @Override
             public Response intercept(Chain chain) throws IOException {
@@ -74,8 +73,6 @@ public class HttpManager {
                 //如果网络访问返回的是json字符串，使用gson转换器
                 .addConverterFactory(DecodeConverterFactory.create())
 //                .addConverterFactory(GsonConverterFactory.create())
-                //此处顺序不能和上面对调，否则不能同时兼容普通字符串和Json格式字符串
-                //为了支持rxjava,需要添加下面这个把 Retrofit 转成RxJava可用的适配类
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
                 .baseUrl(getHost());
         httpService = rBuilder.build().create(HttpService.class);

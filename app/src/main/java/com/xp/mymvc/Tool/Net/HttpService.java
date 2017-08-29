@@ -3,6 +3,8 @@ package com.xp.mymvc.Tool.Net;
 import com.xp.mymvc.Bean.ActivityListBean;
 import com.xp.mymvc.Tool.MyConstants;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Map;
 
 import okhttp3.RequestBody;
@@ -30,5 +32,7 @@ public interface HttpService {
     @POST(MyConstants.ACTIVITYLIST)
     Observable<ActivityListBean> getList(@Field("argEncPara") String argEncPara);
 
-
+    @FormUrlEncoded
+    @POST(MyConstants.ACTIVITYLIST)
+    Observable<ActivityListBean> getListMap(@QueryMap HashMap<String,String> arrayList,@Body String data);
 }

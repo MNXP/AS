@@ -42,6 +42,7 @@ public class HttpClient {
         String encodeStr = toEncode(map);
         map.clear();
         toSubscribe(HttpManager.getInstance().getHttpService().getList(encodeStr), subscriber);
+//        toSubscribe(HttpManager.getInstance().getHttpService().getListMap(map), subscriber);
     }
 
 

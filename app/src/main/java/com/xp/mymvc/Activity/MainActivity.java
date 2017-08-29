@@ -39,7 +39,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 activityController.postActivityList(1, 20, MainActivity.this, new ActivityController.NetMessageListener() {
                     @Override
                     public void onComplete(List<ActivityListBean.ActivityBean> list2) {
-
                         list.addAll(list2);
                         adapter.notifyDataSetChanged();
                     }
