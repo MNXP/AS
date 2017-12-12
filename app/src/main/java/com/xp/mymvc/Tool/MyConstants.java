@@ -11,9 +11,9 @@ public class MyConstants {
      * app端
      **/
     // 密钥
-    public static final String KEY = "7sDwD7cCMR5PtKGyQ12r99b!Ke&LQb";
+    public static final String KEY = "sDwD7cCMR5PtKGyQ12r99b!Ke&LQb";
     // 向量
-    public static final String IV = "91798020";
+    public static final String IV = "9179802";
 
 
 
@@ -22,7 +22,7 @@ public class MyConstants {
     /**
      * 活动列表地址
      */
-    public static final String ACTIVITYLIST = "appservice/activity/getActivityList";
+    public static final String ACTIVITY_LIST = "appservice/activity/getActivityList";
 
 
 

@@ -20,7 +20,7 @@ public final class DecodeConverterFactory extends Converter.Factory {
     public static DecodeConverterFactory create() {
         return create(new Gson());
     }
-    public static DecodeConverterFactory create(Gson gson) {
+    private static DecodeConverterFactory create(Gson gson) {
         return new DecodeConverterFactory(gson);
     }
     private final Gson gson;

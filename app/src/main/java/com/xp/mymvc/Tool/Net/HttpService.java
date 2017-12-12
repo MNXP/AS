@@ -29,10 +29,8 @@ public interface HttpService {
     Observable<String> uploadUserFile(@Part("fileName") RequestBody description, @Part("file\"; filename=\"image.png\"")RequestBody img);
 
     @FormUrlEncoded
-    @POST(MyConstants.ACTIVITYLIST)
+    @POST(MyConstants.ACTIVITY_LIST)
     Observable<ActivityListBean> getList(@Field("argEncPara") String argEncPara);
 
-    @FormUrlEncoded
-    @POST(MyConstants.ACTIVITYLIST)
-    Observable<ActivityListBean> getListMap(@QueryMap HashMap<String,String> arrayList,@Body String data);
+
 }

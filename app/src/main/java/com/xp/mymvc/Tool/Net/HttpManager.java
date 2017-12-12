@@ -31,15 +31,15 @@ import rx.schedulers.Schedulers;
 public class HttpManager {
 
     //定义基本地址
-    public static final String HOST = MyConstants.SERVER_URL;
+    private static final String HOST = MyConstants.SERVER_URL;
     //设置连接超时的值
     private static final int TIMEOUT = 15;
     //声明HttpService对象
-    protected HttpService httpService;
+    private HttpService httpService;
     //声明HttpManager对象
     private volatile static HttpManager httpManager;
 
-    protected HttpManager() {
+    private HttpManager() {
         //新建一个文件用来缓存网络请求
         File cacheDirectory = new File(MyApplication.getAppContext()
                 .getCacheDir(), "HttpCache");
@@ -83,7 +83,7 @@ public class HttpManager {
      *
      * @return
      */
-    protected String getHost() {
+    public String getHost() {
         return HOST;
     }
 
@@ -103,30 +103,6 @@ public class HttpManager {
         return httpManager;
     }
 
-    /**
-     * 处理http请求——常规
-     *
-     * @param pCall
-     * @param pCallback
-     */
-    public void doHttpRequest(Call pCall, Callback pCallback) {
-        Call call = pCall;
-        call.enqueue(pCallback);
-    }
-
-    /**
-     * 处理http请求——RX
-     *
-     * @param pObservable
-     * @param pSubscriber
-     */
-    public void doHttpRequest(Observable pObservable, Subscriber pSubscriber) {
-        Observable observable = pObservable
-                .subscribeOn(Schedulers.io())
-                .unsubscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread());
-        observable.subscribe(pSubscriber);
-    }
 
     /**
      * json方式传参

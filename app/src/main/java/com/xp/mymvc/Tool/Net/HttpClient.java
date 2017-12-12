@@ -17,9 +17,11 @@ import rx.schedulers.Schedulers;
  */
 
 public class HttpClient {
-    public static HttpClient httpClient;
+    private static HttpClient httpClient;
+    private static HashMap<String, String> map;
+    private static Gson gson;
 
-    public HttpClient() {
+    private HttpClient() {
     }
 
     public static HttpClient getInstance() {
@@ -36,20 +38,24 @@ public class HttpClient {
      * @param subscriber
      */
     public void getList(int i, int pageSize, Subscriber<ActivityListBean> subscriber) {
-        HashMap<String, String> map = new HashMap<>();
+        init();
         map.put("current", "" + i);
         map.put("pageSize", "" + pageSize);
-        String encodeStr = toEncode(map);
-        map.clear();
-        toSubscribe(HttpManager.getInstance().getHttpService().getList(encodeStr), subscriber);
-//        toSubscribe(HttpManager.getInstance().getHttpService().getListMap(map), subscriber);
+        toSubscribe(HttpManager.getInstance().getHttpService().getList(toEncode(map)), subscriber);
     }
 
 
 
 
 
-
+    private static void init() {
+        if (map == null)
+            map = new HashMap<>();
+        else
+            map.clear();
+        if (gson == null)
+            gson = new Gson();
+    }
 
 
     private String toEncode(Map<String,String> map){
