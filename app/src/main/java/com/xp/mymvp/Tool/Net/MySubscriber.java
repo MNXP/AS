@@ -1,13 +1,8 @@
-package com.xp.mymvc.Tool.Net;
+package com.xp.mymvp.Tool.Net;
 
 import android.content.Context;
-import android.widget.Toast;
 
-import com.xp.mymvc.Tool.View.MyToast;
-
-import java.net.ConnectException;
-import java.net.SocketTimeoutException;
-import java.net.UnknownHostException;
+import com.xp.mymvp.Tool.View.MyToast;
 
 import rx.Subscriber;
 

@@ -1,21 +1,13 @@
-package com.xp.mymvc.Tool.Net;
+package com.xp.mymvp.Tool.Net;
 
-import com.xp.mymvc.Bean.ActivityListBean;
-import com.xp.mymvc.Tool.MyConstants;
-
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
+import com.xp.mymvp.Bean.ActivityListBean;
+import com.xp.mymvp.Tool.MyConstants;
 
 import okhttp3.RequestBody;
-import retrofit2.http.Body;
 import retrofit2.http.Field;
-import retrofit2.http.FieldMap;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.POST;
 import retrofit2.http.Part;
-import retrofit2.http.PartMap;
-import retrofit2.http.QueryMap;
 import rx.Observable;
 
 /**

@@ -1,4 +1,4 @@
-package com.xp.mymvc.Tool;
+package com.xp.mymvp.Tool;
 
 public class MyConstants {
 
